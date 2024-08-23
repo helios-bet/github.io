@@ -1,0 +1,536 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align the panels at the top */
+    height: auto; /* Adjust height to fit content */
+    width: 65%;
+}
+
+.form-container, .balance-panel {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.form-container {
+    width: 70%; /* Increased width */
+    margin-right: 20px; /* Space between the panels */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.form-group select,
+.form-group input[type="text"],
+.form-group button,
+.inline-item input[type="text"],
+.inline-item select,
+.high-btn,
+.low-btn {
+    height: 35px; /* Consistent height for text boxes, dropdowns, and buttons */
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    vertical-align: middle; /* Ensures alignment with text labels */
+}
+
+.form-group input[type="text"][readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.form-group button:active {
+    background-color:#0084ff;
+    transition: background-color 0.3s ease;
+}
+
+.bet-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.high-btn,
+.low-btn {
+    color: #ffffff;
+    width: 70%;
+    border: none;
+    cursor: pointer;
+}
+
+.high-btn {
+    background-color: #28a745;
+}
+
+.low-btn {
+    background-color: #dc3545;
+}
+
+.high-btn:hover,
+.low-btn:hover {
+    opacity: 0.9;
+}
+
+#token-balance-group {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+}
+
+.token-text {
+    margin-right: 5px; /* Small margin between the input and button */
+}
+
+/* Default style for refresh-btn */
+.refresh-btn {
+    width: 15% !important; /* Maintain width for the refresh button */
+    margin-left: 5px; /* Space on the left */
+    border: none; /* Remove border */
+    background-color: transparent; /* Default background color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+    padding: 0; /* Remove padding */
+}
+
+/* Default style for acc-refresh-btn */
+.acc-refresh-btn {
+    width: 15px; /* Adjust size as needed */
+    height: 15px; /* Adjust size as needed */
+    fill: #0084ff;
+}
+
+/* Optional: Style for hover state */
+.refresh-btn:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+
+.bet-option {
+    text-align: center;
+    width: 48%;
+}
+
+.bet-range {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.status-draw-group,
+.inline-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.status-draw-item,
+.inline-item {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.status-draw-item:last-child,
+.inline-item:last-child {
+    margin-right: 0;
+}
+
+.inline-item label {
+    width: auto;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+#bet-process-info {
+    height: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+    color: #03b830;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+/* Special case for Transaction ID and Hash ID to take 100% width */
+#transaction-id,
+#hash-id {
+    width: 100%;
+}
+
+.balance-panel {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+.balance-panel h3 {
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.balance-row {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 10px; /* Add space between rows */
+}
+
+#refresh-bet-account-balance {
+    background-color: transparent;
+    width: 25px; /* Ensure the button width is consistent */
+    height: 25px; /* Ensure the button height is consistent */
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Remove padding for better alignment */
+    margin-left: 10px; /* Add space between the balance and the button */
+    display: inline-flex;
+    align-items: center; /* Center the SVG icon vertically */
+    justify-content: center; /* Center the SVG icon horizontally */
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+    border: 1px solid #ccc; /* Add border to make it look like a button */
+}
+
+#refresh-bet-account-balance:active {
+    background-color: #0084ff;
+}
+
+.bal-refresh-btn {
+    width: 15px; /* Adjust size as needed */
+    height: 15px; /* Adjust size as needed */
+    fill: #0084ff;
+}
+
+/* Existing styles remain the same */
+
+/* Mobile Styles */
+@media (max-width: 548px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        height: 90%;
+        padding-top: 20px;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .balance-panel {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .form-group select,
+    .form-group input[type="text"],
+    .form-group button,
+    .inline-item input[type="text"],
+    .inline-item select,
+    .high-btn,
+    .low-btn {
+        width: 100%;
+        font-size: medium;
+    }
+
+    #token-balance-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .token-text {
+        width: 70% !important; /* Adjusted width for the text input */
+        margin-right: 5px;
+    }
+
+    .refresh-btn {
+        width: 25% !important; /* Adjusted width for the refresh button */
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        height: 90%;
+        padding-top: 20px;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .balance-panel {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .form-group select,
+    .form-group input[type="text"],
+    .form-group button,
+    .inline-item input[type="text"],
+    .inline-item select,
+    .high-btn,
+    .low-btn {
+        width: 100%;
+    }
+
+    #token-balance-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .token-text {
+        width: 70% !important; /* Adjusted width for the text input */
+        margin-right: 5px;
+    }
+
+    .refresh-btn {
+        width: 25% !important; /* Adjusted width for the refresh button */
+    }
+}
+
+
+/* Mobile Styles */
+@media (max-width: 1280px) {
+    .container {
+        flex-direction: column;
+        width: 80%;
+        height: 95%;
+        padding-top: 20px;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .balance-panel {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .form-group select,
+    .form-group input[type="text"],
+    .form-group button,
+    .inline-item input[type="text"],
+    .inline-item select,
+    .high-btn,
+    .low-btn {
+        width: 100%;
+    }
+
+    #token-balance-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .token-text {
+        width: 70% !important; /* Adjusted width for the text input */
+        margin-right: 5px;
+    }
+
+    .refresh-btn {
+        width: 25% !important; /* Adjusted width for the refresh button */
+    }
+}
+
+/* Pop-Up Panel Styles */
+.popup-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* On top of other content */
+    opacity: 0; /* Start with opacity 0 */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth opacity and visibility transition */
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px); /* Start with slight upward translation */
+    transition: transform 0.3s ease; /* Smooth slide down transition */
+}
+
+.close-popup {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup-form-group {
+    margin-bottom: 15px;
+}
+
+.popup-form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.popup-form-group input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    color: white; /* Common color for both buttons */
+}
+
+#check-draw-btn {
+    background-color: #28a745;
+}
+
+#clear-inputs-btn {
+    background-color: #dc3545;
+}
+
+.balance-separator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+#popup-process-info {
+    height: auto; /* Allow the height to adjust based on content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    color: rgb(3, 184, 48);
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 10px; /* Add some margin if needed */
+}
+
+/* Visible state with smooth transition */
+.show-popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+.show-popup .popup-content {
+    transform: translateY(0); /* Slide into place */
+}
+
+#open-popup-btn {
+    background-color: #0099ff;
+    width: 70%;
+    color: #ffffff;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+#open-popup-btn:hover {
+    background-color: #038de9;
+    transition: background-color 0.3s ease;
+}
+
+#open-popup-btn:active {
+    background-color:#0084ff;
+    transition: background-color 0.3s ease;
+}
+
+/* Title goes here */
+.title-logo-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between title and form */
+    justify-content: center; /* Centers the title and logo */
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Space between logo and title */
+}
+
+.title-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700 !important;
+    font-size: 24px;
+    color: #333; /* You can change the color to match your theme */
+}
